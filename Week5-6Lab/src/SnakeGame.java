@@ -9,7 +9,7 @@ public class SnakeGame {
     }
 
     public SnakeGame(boolean[][] game, int x, int y) {
-        this.game  = new boolean[game.length-1][game[0].length-1];
+        this.game  = new boolean[game.length][game[0].length];
         for(int i = 0; i < game.length; i++) {
             for (int j = 0; j < game[i].length; j++) {
                 this.game[i][j] = game[i][j];
@@ -22,27 +22,30 @@ public class SnakeGame {
 
     //Return x,y,counterChecks
     public int[] findTailExhaustive() {
+        resetCounters();
         int[] countTail = new int[3];
-        countTail[0] = headPosition[0];
-        countTail[1]= headPosition[1];
-        exhaustiveCheck = 0;
+        game[headPosition[0]][headPosition[1]]=true;
         for(int i = 0; i < game.length; i++){
             for(int k = 0; k < game[i].length; k++){
-                exhaustiveCheck++;
-                if(game[i][k] == game[headPosition[0]][headPosition[1]]){
-                    countTail[2] = exhaustiveCheck;
-                    return countTail;
+                if(game[i][k] == true){
+                    exhaustiveCheck++;
                 }
             }
         }
+        countTail[0] = headPosition[0];
+        countTail[1] = headPosition[1];
+        countTail[2] = exhaustiveCheck;
         return countTail;
     }
 
     /*public int[] findTailRecursive(){
-    }
-
-    private int[] findTailRecursive(int currentPosition, int[] previousPosition){
+        resetCounters();
+        return (findTailRecursive(headPosition,headPosition));
     }*/
+
+    private int[] findTailRecursive(int[] currentPosition, int[] previousPosition){
+        if(game[currentPosition[0]-1][currentPosition[1]-1])
+    }
 
     private void resetCounters(){
         exhaustiveCheck = 0;
