@@ -6,6 +6,9 @@ public class SnakeGame {
 
     public SnakeGame() {
         this.game = new boolean[0][0];
+        this.headPosition = new int[2];
+        this.headPosition[0] = 0;
+        this.headPosition[1] = 0;
     }
 
     public SnakeGame(boolean[][] game, int x, int y) {
@@ -40,12 +43,16 @@ public class SnakeGame {
 
     /*public int[] findTailRecursive(){
         resetCounters();
-        return (findTailRecursive(headPosition,headPosition));
+        return findTailRecursive(headPosition, headPosition);
     }*/
 
-    private int[] findTailRecursive(int[] currentPosition, int[] previousPosition){
-        if(game[currentPosition[0]-1][currentPosition[1]-1])
-    }
+    /*private int[] findTailRecursive(int[] currentPosition, int[] previousPosition){
+        recursiveCheck = 0;
+        if(game[currentPosition[0]][currentPosition[1]+1]){
+            return findTailRecursive()
+
+        }
+    }*/
 
     private void resetCounters(){
         exhaustiveCheck = 0;
