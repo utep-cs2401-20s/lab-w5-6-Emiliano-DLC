@@ -44,9 +44,9 @@ public class SnakeGame {
     /*public int[] findTailRecursive(){
         resetCounters();
         return findTailRecursive(headPosition, headPosition);
-    }*/
+    }
 
-    /*private int[] findTailRecursive(int[] currentPosition, int[] previousPosition){
+    private int[] findTailRecursive(int[] currentPosition, int[] previousPosition){
         recursiveCheck = 0;
         if(game[currentPosition[0]][currentPosition[1]+1]){
             return findTailRecursive()
