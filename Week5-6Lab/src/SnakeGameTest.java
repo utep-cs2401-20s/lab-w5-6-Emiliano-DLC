@@ -20,7 +20,7 @@ class SnakeGameTest {
         arr[3][2] = true;
         SnakeGame test = new SnakeGame(arr,xAndY[0], xAndY[1]);
         test.findTailExhaustive();
-        assertArrayEquals(new int[]{1,1,4}, test.findTailExhaustive());
+        assertArrayEquals(new int[]{3,2,4}, test.findTailExhaustive());
     }
 
     @Test
@@ -28,12 +28,12 @@ class SnakeGameTest {
     public void findTailExhaustive2(){
         SnakeGame snk = new SnakeGame();
         snk.findTailExhaustive();
-        assertArrayEquals(new int[]{0,0,0}, snk.findTailExhaustive());
-        assertEquals(0, snk.findTailExhaustive()[2]);
+        assertArrayEquals(new int[]{}, snk.findTailExhaustive());
+        //assertEquals(0, snk.findTailExhaustive()[2]);
     }
 
     @Test
-    //Test check a boolean 2d array of size 10 and look for a snake of size 9
+    //Test check a boolean 2d in which the head is located after the tail.
     public void findTailExhaustive3(){
         boolean[][] arr = new boolean[10][10];
         for(int i = 0; i<arr.length; i++){
@@ -41,7 +41,7 @@ class SnakeGameTest {
                 arr[i][k] = false;
             }
         }
-        int[] xAndY = {0,0};
+        int[] xAndY = {5,3};
         arr[1][0] = true;
         arr[2][0] = true;
         arr[3][0] = true;
@@ -49,7 +49,7 @@ class SnakeGameTest {
         arr[4][1] = true;
         arr[4][2] = true;
         arr[4][3] = true;
-        arr[5][3] = true;
+        arr[0][0] = true;
         SnakeGame snk = new SnakeGame(arr, xAndY[0], xAndY[1]);
         snk.findTailExhaustive();
         //assertEquals(9,snk.findTailExhaustive()[2]);
@@ -68,7 +68,7 @@ class SnakeGameTest {
         arr[3][3] = true;
         arr[4][3] = true;
         SnakeGame snk = new SnakeGame(arr, xAndY[0], xAndY[1]);
-        assertArrayEquals(new int[]{2,3,3}, snk.findTailExhaustive());
+        assertArrayEquals(new int[]{4,3,3}, snk.findTailExhaustive());
 
     }
 
@@ -87,7 +87,7 @@ class SnakeGameTest {
         arr[0][0] = true;
         arr[7][7] = true;
         SnakeGame snk = new SnakeGame(arr, xAndY[0], xAndY[1]);
-        assertArrayEquals(new int[]{xAndY[0],xAndY[1],3}, snk.findTailExhaustive());
+        assertArrayEquals(new int[]{7,7,3}, snk.findTailExhaustive());
 
     }
 

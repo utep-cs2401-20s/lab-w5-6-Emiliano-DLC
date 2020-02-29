@@ -32,11 +32,11 @@ public class SnakeGame {
             for(int k = 0; k < game[i].length; k++){
                 if(game[i][k] == true){
                     exhaustiveCheck++;
+                    countTail[0] = i;
+                    countTail[1]= k;
                 }
             }
         }
-        countTail[0] = headPosition[0];
-        countTail[1] = headPosition[1];
         countTail[2] = exhaustiveCheck;
         return countTail;
     }
@@ -48,8 +48,9 @@ public class SnakeGame {
 
     private int[] findTailRecursive(int[] currentPosition, int[] previousPosition){
         recursiveCheck = 0;
-        if(game[currentPosition[0]][currentPosition[1]+1]){
-            return findTailRecursive()
+        if(game[currentPosition[0]-1][currentPosition[1]-1]==true){
+            return findTailExhaustive(currentPosition[0]-1])
+
 
         }
     }*/
